@@ -325,6 +325,7 @@ def messages_destroy(message_id):
     if g.user.id == msg.user_id:
         db.session.delete(msg)
         db.session.commit()
+        flash('Deleted Successfully', 'success')
 
     return redirect(f"/users/{g.user.id}")
 
