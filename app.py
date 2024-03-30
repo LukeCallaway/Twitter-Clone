@@ -326,7 +326,6 @@ def messages_destroy(message_id):
         db.session.delete(msg)
         db.session.commit()
 
-    flash("Access unauthorized.", "danger")
     return redirect(f"/users/{g.user.id}")
 
 @app.route('/users/add_like/<int:msg_id>', methods=['POST'])
