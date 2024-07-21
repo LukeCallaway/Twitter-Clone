@@ -29,10 +29,12 @@
               <a href="/users/{{ user.id }}/followers">{{ user.followers | length }}</a>
             </h4>
           </li>
+          {% if user.id == g.user.id%}
           <li class="stat">
             <p class="small">Likes</p>
             <h4><a href="/users/{{ user.id }}/likes">{{ user.likes | length }}</h4>
           </li>
+          {% endif %}
           <div class="ml-auto">
             {% if g.user.id == user.id %}
             <a href="/users/profile" class="btn btn-outline-secondary">Edit Profile</a>

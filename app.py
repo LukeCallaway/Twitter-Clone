@@ -185,12 +185,13 @@ def users_followers(user_id):
 @app.route('/users/<int:user_id>/likes')
 def users_likes(user_id):
     """Show list of liked messages"""
+    user = User.query.get_or_404(user_id)
     messages = g.user.likes
     if not g.user:
         flash("Access unauthorized.", "danger")
         return redirect("/")
 
-    return render_template('users/likes.html', user = g.user, messages = messages)
+    return render_template('users/likes.html', user = user, messages = messages)
 
 
 @app.route('/users/follow/<int:follow_id>', methods=['POST'])
