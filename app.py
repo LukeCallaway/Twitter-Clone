@@ -115,7 +115,7 @@ def logout():
     # IMPLEMENT THIS
 
     do_logout()
-    flash('You were successfully logged out!')
+    flash('You were successfully logged out!', 'success')
     return redirect('/login')
 
 ##############################################################################
@@ -249,7 +249,7 @@ def profile():
 
             return redirect('/')
 
-        flash('Incorrect Password')
+        flash('Incorrect Password', 'danger')
         return render_template('/users/edit.html', form = form, user = g.user)
         
 
